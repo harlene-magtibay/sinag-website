@@ -1,0 +1,56 @@
+body {
+    background: #ff8a3d;
+    background: linear-gradient(90deg, rgba(204, 49, 96, 1) 1%, rgba(199, 121, 87, 1) 50%, rgba(229, 237, 83, 1) 100%);
+}
+
+.welcome {
+    color: #ffffff;
+    font-size: 50px;
+}
+
+.location {
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+.go-btn {
+    border-radius: 5px;
+    border: none;
+    padding: 8px 15px;
+    background-color: #ff3030;
+    font-weight: bold;
+    color: #ffff;
+}
+
+.go-btn:hover {
+    background-color: #ffbb00;
+    color: #000000;
+}
+
+.enterLoc {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.sun-container {
+    background-image: url('img/sunrise.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-width: 18rem !important;
+}
+
+.day {
+    color: white;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); */
+    
+}
+
+.sunText {
+    color: #ffffff;
+    background-color: #ff8a3d;
+    padding: 3px 16px;
+    border-radius: 7px;
+}

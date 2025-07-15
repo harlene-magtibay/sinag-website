@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinag</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body>
+    <div class="d-flex flex-column align-items-center justify-content-center mt-3" style="width: 100%;">
+        <h1 class="welcome fw-bold mb-0" style="text-align: center;">Welcome to <strong>SINAG</strong>!</h1>
+        <h5 style="text-align: center; color: #ffffff;">See how each day begins — and when it fades.</h5>
+    </div>
+    
+    <form class="d-flex flex-wrap justify-content-center align-items-center mt-1" action="/" id="form" method="POST">
+        <label class="enterLoc mx-2" for="location">Enter Location: </label>
+        <input type="text" class="location" name="location" placeholder="Latitude, Longitude" required>
+        <button class="go-btn m-3" type="submit">Go</button>
+    </form>
+    
+
+    <div class="d-flex justify-content-center">
+        <% if (locals.error) { %>
+            <div style="color: rgb(188, 0, 0);">
+                <p class="m-0"><%= error %></p>
+            </div>
+        <% } %>
+    </div>
+
+    <div class="d-flex justify-content-center flex-wrap mt-3 gap-5">
+        <% if (locals.dataToday) { %>
+            <div class="sun-container card d-flex flex-column align-items-center justify-content-center my-3 py-5 px-4">
+                <h1 class="day mb-0"><strong>TODAY</strong></h1>
+                <h6><%= dateToday %></h6>
+                <h2 class="sunText mt-5"><strong>Sunrise:</strong></h2>
+                <h3><%= dataToday.results.sunrise %></h3>
+                <h2  class="sunText mt-4"><strong>Sunset:</strong></h2>  
+                <h3><%= dataToday.results.sunset %></h3>
+            </div>
+            
+            <div class="sun-container card d-flex flex-column align-items-center justify-content-center my-3 py-5 px-4">
+                <h1 class="day mb-0"><strong>IN 7 DAYS</strong></h1>
+                <h6><%= dateWeek1 %></h6>
+                <h2 class="sunText mt-5"><strong>Sunrise:</strong></h2>
+                <h3><%= dataWeek1.results.sunrise %></h3>
+                <h2 class="sunText mt-4"><strong>SUNSET:</strong></h2>
+                <h3><%= dataWeek1.results.sunset %></h3>
+            </div>
+            
+            <div class="sun-container card d-flex flex-column align-items-center justify-content-center my-3 py-5 px-4">
+                <h1 class="day mb-0"><strong>IN 14 DAYS</strong></h1>
+                <h6><%= dateWeek2 %></h6>
+                <h2 class="sunText mt-5"><strong>SUNRISE:</strong></h2>
+                <h3><%= dataWeek2.results.sunrise %></h3>
+                <h2 class="sunText mt-4"><strong>SUNSET:</strong></h2>
+                <h3><%= dataWeek2.results.sunset %></h3>
+            </div>
+        <% } else { %>
+            <div class="d-flex flex-column align-items-center">
+                <img style="height: 350px;" src="/img/sinag.png" alt="sinag logo">
+                <h5 class="mt-2" style="width: 350px; text-align: center; color: #ffffff;">Sinag shows you the sunrise and sunset times for your current location — not just for today, but also for the next two weeks.</h5>
+                <h4 class="mt-0" style="font-weight: lighter; text-align: center; color: #ffffff;">Stay in sync with the light, wherever you are.</h4>
+            </div>
+            
+        <% } %>
+    </div>
+    <h6 class="mt-2" style="text-align: center;">Timezone: All times are shown in Philippine Standard Time (PST / Asia/Manila, UTC+8).</h6>
+
+    
+</body>
+</html>
